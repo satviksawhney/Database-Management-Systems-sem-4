@@ -1,0 +1,125 @@
+mysql> create database satvik;
+Query OK, 1 row affected (0.08 sec)
+
+mysql> use satvik;
+Database changed
+mysql> create table Employee(Eid varchar(10),Ename varchar(10), salary int(10), DOB date, Manager_id varchar(10),Dno varchar(15));
+Query OK, 0 rows affected (0.13 sec)
+
+mysql> insert into Employee values('AUBTC180','Satvik',9999999,'2000-01-20','AUBCS120',26);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into Employee values('AUBTC181','Yash',99999,'2000-06-07','AUBCS135',36);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into Employee values('AUBTC182','Gaurav',0,'1867-06-09','AUBCS133',76);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into Employee values('AUBTC183','Dhruv',849,'1999-03-23','AUBCS132',13);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into Employee values('AUBTC184','Anjali',9999999999999,'2005-04-23','AUBCS154',24);
+ERROR 1264 (22003): Out of range value for column 'salary' at row 1
+mysql> insert into Employee values('AUBTC184','Anjali',99999999,'2005-04-23','AUBCS154',24);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> select * from Employee;
++----------+--------+----------+------------+------------+------+
+| Eid      | Ename  | salary   | DOB        | Manager_id | Dno  |
++----------+--------+----------+------------+------------+------+
+| AUBTC180 | Satvik |  9999999 | 2000-01-20 | AUBCS120   | 26   |
+| AUBTC181 | Yash   |    99999 | 2000-06-07 | AUBCS135   | 36   |
+| AUBTC182 | Gaurav |        0 | 1867-06-09 | AUBCS133   | 76   |
+| AUBTC183 | Dhruv  |      849 | 1999-03-23 | AUBCS132   | 13   |
+| AUBTC184 | Anjali | 99999999 | 2005-04-23 | AUBCS154   | 24   |
++----------+--------+----------+------------+------------+------+
+5 rows in set (0.03 sec)
+
+mysql> create table Department(dnumber varchar(5),dnam);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+mysql> create table Department(dnumber varchar(5),dname varchar(5),dloc varchar(5));
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> insert into Department values('26','accounts','first floor');
+ERROR 1406 (22001): Data too long for column 'dname' at row 1
+mysql> insert into Department values('26','finance','first floor');
+ERROR 1406 (22001): Data too long for column 'dname' at row 1
+mysql> insert into Department values('26','fin','first floor');
+ERROR 1406 (22001): Data too long for column 'dloc' at row 1
+mysql> insert into Department values('26','fin','firstfloor');
+ERROR 1406 (22001): Data too long for column 'dloc' at row 1
+mysql> insert into Department values('26','fin','del');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into Department values('36','acc','gurg');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into Department values('76','serv','gurg');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into Department values('13','serv','hyder');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into Department values('24'serv','hyder');
+    '>
+    '> select * from Department;
+    '>
+    '>
+    '> select * from Department;
+    '> insert into Department values('24'serv','hyder');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'serv','hyder');
+
+select * from Department;
+
+
+select * from Department;
+insert in' at line 1
+mysql> insert into Department values('24','serv','hyder');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> select * from Department;
++---------+-------+-------+
+| dnumber | dname | dloc  |
++---------+-------+-------+
+| 26      | fin   | del   |
+| 36      | acc   | gurg  |
+| 76      | serv  | gurg  |
+| 13      | serv  | hyder |
+| 24      | serv  | hyder |
++---------+-------+-------+
+5 rows in set (0.00 sec)
+
+mysql> show tables;
++------------------+
+| Tables_in_satvik |
++------------------+
+| department       |
+| employee         |
++------------------+
+2 rows in set (0.02 sec)
+
+mysql> select * from Employee;
++----------+--------+----------+------------+------------+------+
+| Eid      | Ename  | salary   | DOB        | Manager_id | Dno  |
++----------+--------+----------+------------+------------+------+
+| AUBTC180 | Satvik |  9999999 | 2000-01-20 | AUBCS120   | 26   |
+| AUBTC181 | Yash   |    99999 | 2000-06-07 | AUBCS135   | 36   |
+| AUBTC182 | Gaurav |        0 | 1867-06-09 | AUBCS133   | 76   |
+| AUBTC183 | Dhruv  |      849 | 1999-03-23 | AUBCS132   | 13   |
+| AUBTC184 | Anjali | 99999999 | 2005-04-23 | AUBCS154   | 24   |
++----------+--------+----------+------------+------------+------+
+5 rows in set (0.00 sec)
+
+mysql> select * from Department;
++---------+-------+-------+
+| dnumber | dname | dloc  |
++---------+-------+-------+
+| 26      | fin   | del   |
+| 36      | acc   | gurg  |
+| 76      | serv  | gurg  |
+| 13      | serv  | hyder |
+| 24      | serv  | hyder |
++---------+-------+-------+
+5 rows in set (0.00 sec)
+
+mysql>
