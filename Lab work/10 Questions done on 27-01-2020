@@ -1,0 +1,83 @@
+mysql> create database satvik1;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> use satvik1;
+Database changed
+mysql> create table employee(eid char(5),ename varchar(10),Dno int,salary float(10,3));
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> insert into employee values('A101','satvik',8,1200089.235);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into employee values('A102','yash',8,124230);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into employee values('A103','Gaurav',10,12420);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into employee values('A104','Anjali',10,1242320);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into employee values('A105','Dipanshi',10,452240);
+Query OK, 1 row affected (0.12 sec)
+
+mysql> alter table employee add column city varchar(10);
+Query OK, 5 rows affected (0.20 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> update employee set city='Delhi' where eid='A101';
+Query OK, 1 row affected (0.07 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee set city='Gurugram' where eid='A102';
+Query OK, 1 row affected (0.03 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee set city='Delhi' where eid='A103';
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee set city='Gurugram' where eid='A104';
+Query OK, 1 row affected (0.03 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee set city='Noida' where eid='A105';
+Query OK, 1 row affected (0.03 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> alter table employee change salary earnings float(10,3);
+Query OK, 5 rows affected (0.17 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> alter table employee modify ename varchar(12);
+Query OK, 5 rows affected (0.19 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> select * from employee;
++------+----------+------+-------------+----------+
+| eid  | ename    | Dno  | earnings    | city     |
++------+----------+------+-------------+----------+
+| A101 | satvik   |    8 | 1200089.250 | Delhi    |
+| A102 | yash     |    8 |  124230.000 | Gurugram |
+| A103 | Gaurav   |   10 |   12420.000 | Delhi    |
+| A104 | Anjali   |   10 | 1242320.000 | Gurugram |
+| A105 | Dipanshi |   10 |  452240.000 | Noida    |
++------+----------+------+-------------+----------+
+5 rows in set (0.00 sec)
+
+mysql> select eid,ename from employee where earnings between 10000 and 20000;
++------+--------+
+| eid  | ename  |
++------+--------+
+| A103 | Gaurav |
++------+--------+
+1 row in set (0.01 sec)
+
+mysql> select eid,ename,Dno from employee where city In('Delhi','Bombay');
++------+--------+------+
+| eid  | ename  | Dno  |
++------+--------+------+
+| A101 | satvik |    8 |
+| A103 | Gaurav |   10 |
++------+--------+------+
+2 rows in set (0.00 sec)
